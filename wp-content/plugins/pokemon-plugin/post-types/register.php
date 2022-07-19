@@ -25,7 +25,7 @@ function PokePlugin_register_pokemon_type() {
         'menu_icon' => 'dashicons-buddicons-activity',
         'supports' => ['title', 'editor', 'thumbnail', 'custom-fields'],
 
-        'show_in_rest' => false,
+        'show_in_rest' => true,
 
         'taxonomies' => ['pokemon_type'],
     ];
@@ -58,7 +58,7 @@ function PokePlugin_register_pokemon_event() {
         'menu_icon' => 'dashicons-buddicons-activity',
         'supports' => ['title', 'editor', 'thumbnail', 'custom-fields'],
 
-        'show_in_rest' => false,
+        'show_in_rest' => true,
     ];
 
     register_post_type('pokemon_event', $args);

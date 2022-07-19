@@ -16,21 +16,28 @@ if (!defined('WPINC')) {
     exit;
 }
 
-// PokePlugin_
-
 define('PokePlugin_VERSION', '1.0.0');
 define('PokePlugin_DOMAIN', 'pokemon-plugin');
 define('PokePlugin_PATH', plugin_dir_path(__FILE__));
 
-require_once( PokePlugin_PATH . '/post-types/register.php' );
+require_once( PokePlugin_PATH . '/post-types/register.php');
 add_action('init', 'PokePlugin_register_pokemon_type');
 add_action('init', 'PokePlugin_register_pokemon_event');
 
-require_once( PokePlugin_PATH . '/taxonomies/register.php' );
+require_once( PokePlugin_PATH . '/taxonomies/register.php');
 add_action('init', 'PokePlugin_register_type_taxonomy');
 
-function PokePlugin_rewrite_flush() {
+require_once( PokePlugin_PATH . '/custom-fields/register.php');
+add_action( 'rest_api_init', 'Pokeplugin_add_new_fields' );
+
+function PokePlugin_register_everything(){
     PokePlugin_register_pokemon_type(); 
+    PokePlugin_register_pokemon_event();
+    PokePlugin_register_type_taxonomy();
+}
+
+function PokePlugin_rewrite_flush() {
+    PokePlugin_register_everything();
     flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'PokePlugin_rewrite_flush' );
