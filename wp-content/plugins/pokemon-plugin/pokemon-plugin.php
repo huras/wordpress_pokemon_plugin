@@ -28,3 +28,9 @@ add_action('init', 'PokePlugin_register_pokemon_event');
 
 require_once( PokePlugin_PATH . '/taxonomies/register.php' );
 add_action('init', 'PokePlugin_register_type_taxonomy');
+
+function PokePlugin_rewrite_flush() {
+    PokePlugin_register_pokemon_type(); 
+    flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'PokePlugin_rewrite_flush' );
