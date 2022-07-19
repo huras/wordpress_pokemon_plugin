@@ -24,6 +24,7 @@ define('PokePlugin_PATH', plugin_dir_path(__FILE__));
 
 require_once( PokePlugin_PATH . '/post-types/register.php' );
 add_action('init', 'PokePlugin_register_pokemon_type');
+add_action('init', 'PokePlugin_register_pokemon_event');
 
 require_once( PokePlugin_PATH . '/taxonomies/register.php' );
 add_action('init', 'PokePlugin_register_type_taxonomy');
