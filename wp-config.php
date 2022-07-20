@@ -38,9 +38,13 @@ define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
 define('FS_METHOD', 'direct');
+
 /*
 MVhOk@aJ1^I0In)Zb^
 */
+
+define('JWT_AUTH_SECRET_KEY', 'T00`YwYZ#gIg14kU(Mj&5@1msJ0+i+2|kh!emqf/J6ou:`%|b5v!<mrYwWfoD)4!');
+define('JWT_AUTH_CORS_ENABLE', true);
 
 /**#@+
  * Authentication unique keys and salts.
@@ -84,7 +88,7 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
