@@ -30,6 +30,8 @@ add_action('init', 'PokePlugin_register_type_taxonomy');
 require_once( PokePlugin_PATH . '/custom-fields/register.php');
 add_action( 'rest_api_init', 'Pokeplugin_add_new_fields' );
 
+require_once( PokePlugin_PATH . '/includes/CMB2-functions.php');
+
 function PokePlugin_register_everything(){
     PokePlugin_register_pokemon_type(); 
     PokePlugin_register_pokemon_event();
